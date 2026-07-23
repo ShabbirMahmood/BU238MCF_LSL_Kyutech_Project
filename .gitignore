@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+Camera_Recordings/*
+!Camera_Recordings/.gitkeep
+*.xdf
+*.avi
+*.mp4
+*.csv
+*.json
