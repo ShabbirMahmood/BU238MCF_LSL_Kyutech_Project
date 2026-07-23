@@ -158,7 +158,7 @@ Copy the full path and set it as `CTI_PATH` in each BAT file.
 Example only:
 
 ```bat
-set "CTI_PATH=C:\Program Files\TOSHIBA TELI\TeliCamSDK\GenTL\x64\TeliU3vGenTL.cti"
+set "CTI_PATH=C:\Program Files\TOSHIBA TELI\TeliCamSDK\TeliCamApi\bin\x64\TeliCamTL64.cti"
 ```
 
 ---
