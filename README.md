@@ -21,6 +21,28 @@ BU238MCF_LSL_30FPS_Minimal_Project/
 
 Only edit `camera_settings.json`. Both BAT files use the same fixed camera parameters.
 
+---
+
+## Experimental architecture
+
+```mermaid
+flowchart LR
+    PTB[Psychtoolbox<br/>PTB_Triggers] -->|900 / 999| CAMAPP[BU238MCF Python App]
+    CAMERA[Toshiba Teli<br/>BU238MCF] -->|USB3 / GenTL| CAMAPP
+    CAMAPP -->|Camera_Frame_Metadata| LSL[LSL Network]
+    CAMAPP -->|Camera_Events| LSL
+    CAMAPP --> AVI[Local MJPG AVI]
+    CAMAPP --> CSV[Frame CSV]
+    CAMAPP --> JSON[Timing Summary JSON]
+
+    EEG[EEG Stream] --> LSL
+    TOBII[Tobii Stream] --> LSL
+    PTB --> LSL
+    LSL --> XDF[LabRecorder XDF]
+```
+
+---
+
 ## Default fixed camera settings
 
 ```json
