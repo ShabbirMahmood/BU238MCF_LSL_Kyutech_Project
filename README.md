@@ -1,4 +1,4 @@
-# Toshiba Teli BU238MCF — Minimal 30 FPS LSL Camera Project
+# Toshiba Teli BU238MCF - Minimal 30 FPS LSL USB3 Camera Project for Material Perception EEG Experiment
 
 A minimal camera recorder for the **Toshiba Teli BU238MCF** used in a multimodal EEG experiment. It saves a local 30 FPS MJPG video, streams camera frame IDs and host-delivery timestamps through LSL, detects missing camera BlockIDs, and supports either manual control or Psychtoolbox triggers `900` and `999`.
 
@@ -6,7 +6,7 @@ A minimal camera recorder for the **Toshiba Teli BU238MCF** used in a multimodal
 
 The previous 60 FPS full-resolution recording overloaded the writer pipeline and produced missing BlockIDs and a full writer queue. The 30 FPS version halves the acquisition and encoding load while remaining suitable for monitoring the participant, number-pad responses, and experiment screen.
 
-## Project files
+## Project Files
 
 ```text
 BU238MCF_LSL_30FPS_Minimal_Project/
@@ -23,7 +23,7 @@ Only edit `camera_settings.json`. Both BAT files use the same fixed camera param
 
 ---
 
-## Experimental architecture
+## Experimental Architecture
 
 ```mermaid
 flowchart LR
@@ -43,17 +43,40 @@ flowchart LR
 
 ---
 
-## Default fixed camera settings
-
+## Default Fixed Camera Settings (Adjusted Manually by TeliViewer)
 ```json
 {
-  "exposure_us": 15000,
-  "gain_db": 3.0,
-  "gamma": 1.0,
+  "cti_path": "C:\\Program Files\\TOSHIBA TELI\\TeliCamSDK\\TeliCamApi\\bin\\x64\\TeliCamTL64.cti",
+  "output_dir": "Camera_Recordings",
+  "serial": "1205610",
+  "exposure_us": 5000,
+  "gain_db": 16.00,
+  "gamma": 0.80,
   "black_level": 0.0,
-  "balance_red": 2.450286865234375,
-  "balance_blue": 1.94012451171875,
-  "pixel_format": "BayerBG8"
+  "balance_red": 2.70,
+  "balance_blue": 2.30,
+  "pixel_format": "BayerBG8",
+  "warmup_seconds": 2.0,
+  "post_stop_seconds": 2.0,
+  "discard_frames_after_start": 1,
+  "camera_buffers": 128,
+  "writer_queue_frames": 120,
+  "preview_every": 2,
+  "progress_every_frames": 300,
+  "fetch_timeout_seconds": 1.0,
+  "video_codec": "MJPG",
+  "ptb_stream_name": "PTB_Triggers",
+  "ptb_start_code": "900",
+  "ptb_stop_code": "999"
+
+  def raw_to_bgr(raw: np.ndarray, fmt: str) -> np.ndarray:
+    conversions = {
+        "Mono8": cv2.COLOR_GRAY2BGR,
+        "BayerBG8": cv2.COLOR_BAYER_RG2BGR,
+        "BayerGB8": cv2.COLOR_BAYER_GR2BGR,
+        "BayerGR8": cv2.COLOR_BAYER_GB2BGR,
+        "BayerRG8": cv2.COLOR_BAYER_BG2BGR,
+    }
 }
 ```
 
@@ -68,22 +91,22 @@ The project fixes:
 - white balance: manual/fixed
 - video format: MJPG AVI
 
-### Parameter guidance
+### Parameter Guidance
 
 | Parameter | Default | Adjustment |
 |---|---:|---|
-| Exposure | 15000 µs | Increase toward 18000–22000 if dark; reduce toward 10000–12000 if hand motion blurs or the monitor clips |
-| Gain | 3 dB | Increase only after improving lighting/opening the lens; 6 dB is a reasonable next test |
-| Gamma | 1.0 | Neutral tonal response; keep fixed unless you have a documented reason |
+| Exposure | 5000 µs | Increase toward 18000–22000 if dark; reduce toward 10000–12000 if hand motion blurs or the monitor clips |
+| Gain | 16 dB | Increase only after improving lighting/opening the lens; 16 dB is a reasonable next test |
+| Gamma | 0.80 | Neutral tonal response; keep fixed unless you have a documented reason |
 | Black level | 0 | Keep at zero for normal use |
-| Red WB | 2.4502869 | Replace with a manually chosen TeliViewer value if lighting changes |
-| Blue WB | 1.9401245 | Replace with a manually chosen TeliViewer value if lighting changes |
+| Red WB | 2.7 | Replace with a manually chosen TeliViewer value if lighting changes |
+| Blue WB | 2.3 | Replace with a manually chosen TeliViewer value if lighting changes |
 
 Use stable, flicker-free room lighting. Open the lens aperture before raising gain. The monitor and hand should both be visible without clipping or strong shadow.
 
 ## Installation
 
-Install the Toshiba TeliCamSDK and verify the camera in TeliViewer. Close TeliViewer before running Python.
+Install the Toshiba TeliCamSDK and verify the camera in TeliViewer. Close TeliViewer before running Python (V3.12 is also ok).
 
 Create a Python environment:
 
@@ -99,7 +122,7 @@ Check `camera_settings.json`:
 - `serial` should match your camera
 - `output_dir` may remain `Camera_Recordings`
 
-## Manual recording
+## Manual Recording
 
 Run:
 
@@ -118,7 +141,7 @@ Workflow:
 
 Manual mode includes a reduced preview. Close TeliViewer before using it.
 
-## PTB-controlled recording
+## PTB-Controlled Recording
 
 Run:
 
@@ -170,7 +193,7 @@ STOP_REQUEST_RECEIVED
 CAMERA_RECORDING_STOPPED
 ```
 
-## Local outputs
+## Local Outputs
 
 ```text
 Camera_Recordings/
@@ -190,7 +213,7 @@ dropped_this_frame
 dropped_frame_total
 ```
 
-## Minimal command-window output
+## Minimal Command-Window Output
 
 During a normal recording, the important lines are:
 
@@ -205,7 +228,7 @@ During a normal recording, the important lines are:
 [COMPLETE] frames written, drops, file paths
 ```
 
-## Acceptance checks
+## Acceptance Checks
 
 A clean run should show:
 
@@ -222,7 +245,7 @@ The expected frame interval is approximately:
 33.333 ms
 ```
 
-## Timing interpretation
+## Timing Interpretation
 
 The difference between PTB trigger `900` and the first camera metadata timestamp is:
 
