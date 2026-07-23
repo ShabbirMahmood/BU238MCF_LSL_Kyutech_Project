@@ -1,5 +1,5 @@
 # Recommended: 64-bit CPython 3.11 on Windows 10/11
-# Install Toshiba TeliCamSDK/USB3 Vision driver/GenTL producer separately.
+# Install Toshiba TeliCamSDK, USB3 Vision driver, and GenTL producer separately.
 harvesters==1.4.3
 genicam==1.5.1
 numpy>=1.26.4,<2.4
