@@ -1,4 +1,4 @@
-# Toshiba Teli BU238MCF — 60 FPS LSL Camera Recorder for EEG
+# Toshiba Teli BU238MCF — 60 FPS LSL Camera Recorder for EEG Experiment
 
 Real-time experiment-video recording and frame-metadata streaming for the **Toshiba Teli BU238MCF** industrial camera. The project is designed for multimodal EEG studies using **Lab Streaming Layer (LSL)**, **Psychtoolbox (PTB)**, **LabRecorder**, EEG, eye tracking, and synchronized experiment video.
 
