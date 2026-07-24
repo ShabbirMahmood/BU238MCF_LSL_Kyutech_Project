@@ -228,7 +228,7 @@ During a normal recording, the important lines are:
 [COMPLETE] frames written, drops, file paths
 ```
 
-## Acceptance Checks
+## Acceptance Checking
 
 A clean run should show:
 
