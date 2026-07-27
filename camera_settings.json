@@ -1,0 +1,25 @@
+{
+  "cti_path": "C:\\Program Files\\TOSHIBA TELI\\TeliCamSDK\\TeliCamApi\\bin\\x64\\TeliCamTL64.cti",
+  "output_dir": "Camera_Recordings",
+  "serial": "1205610",
+  "exposure_us": 5000,
+  "gain_db": 16.00,
+  "gamma": 0.80,
+  "black_level": 0.0,
+  "balance_red": 2.70,
+  "balance_blue": 2.30,
+  "pixel_format": "BayerBG8",
+  "warmup_seconds": 2.0,
+  "post_stop_seconds": 2.0,
+  "discard_frames_after_start": 1,
+  "camera_buffers": 128,
+  "writer_queue_frames": 300,
+  "preview_every": 2,
+  "progress_every_frames": 300,
+  "fetch_timeout_seconds": 1.0,
+  "video_codec": "MJPG",
+  "ptb_stream_name": "PTB_Triggers",
+  "ptb_start_code": "900",
+  "ptb_stop_code": "999"
+
+}
