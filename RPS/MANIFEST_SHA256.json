@@ -1,0 +1,12 @@
+{
+  "run_RPS.bat": "61e516ff114e63e881d5c29b4dbb65ae441acc9949a5850f869c52b49e54181a",
+  "RPS/rps_camera.py": "ab7bea0c2a4df3ab4f4872e89592d8c1845574e8c26ffbc2c9796744564b2cb7",
+  "RPS/rps_common.py": "c99afa192136e48e9163b3f1ea0acd80b34378ac8434ac12b7ec8ae57710f3cf",
+  "RPS/test_rps.py": "e08298ab2c13d377b82d3e10b873494bd0fa2a61f824d2b2773cd419785e49cc",
+  "RPS/README_RPS.md": "6e6f1876093524c6598f783e9e8202ad4f4d0b76604d50d07d1b815fc400d84e",
+  "RPS/rps_recorder.py": "a8ecfbc219f4bda709e27c4b3103673e18e210f08621aee9a9e1dd5bd422ce5e",
+  "RPS/rps_config.json": "6e812d255d064d41314d541e99f8c9e34958f3bf01828ba41571d9bacdbb20ab",
+  "RPS/rps_workers.py": "b5831a6b1b51d1fa1bd451ee04f4f56f9b75882d05ba8aa3d3449da5a9554b6b",
+  "RPS/VALIDATION.txt": "0d9f69684ca5a5bb90dd1e5edf063911431b78003f1d19c2eab8729874236f60",
+  "RPS/requirements_RPS.txt": "a3b52f2fee7aabf77cf99a5222a1a825563deb4f4c65fff5dd37d778d5fe7a70"
+}

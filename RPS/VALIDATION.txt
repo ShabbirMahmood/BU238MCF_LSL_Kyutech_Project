@@ -1,0 +1,31 @@
+RPS Add-on validation
+
+Environment: Linux, Python 3.13.5, OpenCV 4.13.0, NumPy 2.3.5
+All Python files parsed/compiled successfully.
+Hardware-free tests plus real tiny video encoding/decoding:
+
+test_complete_main_loop_with_simulated_camera_and_lsl (test_rps.ApplicationTests.test_complete_main_loop_with_simulated_camera_and_lsl) ... ok
+test_bad_parameters (test_rps.ConfigTests.test_bad_parameters) ... ok
+test_default_valid (test_rps.ConfigTests.test_default_valid) ... ok
+test_paths_relative_to_config (test_rps.ConfigTests.test_paths_relative_to_config) ... ok
+test_safe_filename (test_rps.ConfigTests.test_safe_filename) ... ok
+test_ffmpeg_real_roundtrip (test_rps.EncoderTests.test_ffmpeg_real_roundtrip) ... ok
+test_opencv_real_roundtrip (test_rps.EncoderTests.test_opencv_real_roundtrip) ... ok
+test_range_increment_and_optional (test_rps.NodeTests.test_range_increment_and_optional) ... ok
+test_exact_high_water (test_rps.QueueTests.test_exact_high_water) ... ok
+test_blockid_gaps_and_reset (test_rps.TimingTests.test_blockid_gaps_and_reset) ... ok
+test_gate_and_duplicates (test_rps.TimingTests.test_gate_and_duplicates) ... ok
+test_tail_and_cancel (test_rps.TimingTests.test_tail_and_cancel) ... ok
+test_camera_stall_stops (test_rps.WorkerTests.test_camera_stall_stops) ... ok
+test_live_capture_start_stop_and_metadata (test_rps.WorkerTests.test_live_capture_start_stop_and_metadata) ... ok
+test_queue_full_stops_without_silent_drop (test_rps.WorkerTests.test_queue_full_stops_without_silent_drop) ... ok
+test_writer_drains_all_and_csv_matches (test_rps.WorkerTests.test_writer_drains_all_and_csv_matches) ... ok
+test_writer_failure_is_not_success (test_rps.WorkerTests.test_writer_failure_is_not_success) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.607s
+
+OK
+
+Not tested: Toshiba BU238MCF hardware, Teli CTI/DLL loading, camera node readbacks, Windows BAT/keyboard/preview, real LSL/LabRecorder, a full-duration recording.
+No zero-delay, zero-loss or durable-write guarantee is claimed.

@@ -1,0 +1,3 @@
+# Uses your repository's existing pins. No new Python package is required.
+-r ../requirements.txt
+# FFmpeg is optional and is installed separately, not through pip.
