@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\SM_Workspace\3_EEG_Experiment_Design_SM_Doctoral\1_EEG_Experiment_Setup\07_Video_Camera\BU238MCF_LSL_Kyutech_Project\.venv"
+set "VIRTUAL_ENV=C:\01_Texture_EEG_Exp_2026\1_EEG_Experiment_Setup\07_Video_Camera\BU238MCF_LSL_Kyutech_Project\.venv"
 
 if not defined PROMPT set PROMPT=$P$G
 

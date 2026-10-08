@@ -65,8 +65,8 @@ from pylsl import (
 
 # Fixed acquisition format requested for this project.
 FIXED_FPS = 30.0
-FIXED_WIDTH = 1280      # 1920
-FIXED_HEIGHT = 800         # 1200
+FIXED_WIDTH = 1920      # 1920       1280
+FIXED_HEIGHT = 1200         # 1200     800
 
 
 # ---------------------------------------------------------------------------
@@ -287,11 +287,11 @@ def configure_camera(ia, settings: Settings) -> dict:
     set_enum(nm, "TriggerMode", "Off")
 
     # Fix the full sensor area.
-    # set_int(nm, "OffsetX", 0, required=False)
-    # set_int(nm, "OffsetY", 0, required=False)
+    set_int(nm, "OffsetX", 0, required=False)
+    set_int(nm, "OffsetY", 0, required=False)
     
-    set_int(nm, "OffsetX", 320, required=False)
-    set_int(nm, "OffsetY", 200, required=False)
+    # set_int(nm, "OffsetX", 320, required=False)
+    # set_int(nm, "OffsetY", 200, required=False)
 
     actual_width = set_int(nm, "Width", FIXED_WIDTH)
     actual_height = set_int(nm, "Height", FIXED_HEIGHT)
