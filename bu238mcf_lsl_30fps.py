@@ -65,8 +65,13 @@ from pylsl import (
 
 # Fixed acquisition format requested for this project.
 FIXED_FPS = 30.0
+<<<<<<< HEAD
 FIXED_WIDTH = 1920      # 1920       1280
 FIXED_HEIGHT = 1200         # 1200     800
+=======
+FIXED_WIDTH = 1920         # 1920       1280  
+FIXED_HEIGHT = 1200        # 1200        800  
+>>>>>>> b66f38844393bbb1183db6231e8b1ecc621c121b
 
 
 # ---------------------------------------------------------------------------
